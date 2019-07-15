@@ -1,4 +1,4 @@
-package com.ly.flyweight.website;
+package com.ly.flyweight.website2;
 
 import java.util.HashMap;
 import java.util.Map;

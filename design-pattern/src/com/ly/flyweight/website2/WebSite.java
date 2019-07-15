@@ -1,4 +1,4 @@
-package com.ly.flyweight.website;
+package com.ly.flyweight.website2;
 
 /**
  * @ProjectName: Java-Guide
@@ -10,5 +10,5 @@ package com.ly.flyweight.website;
  * @Version: 1.0
  */
 public abstract class WebSite {
-    public abstract void use();
+    public abstract void use(User user);
 }
