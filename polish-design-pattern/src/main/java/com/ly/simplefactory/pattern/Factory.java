@@ -56,7 +56,6 @@ public class Factory {
         try {
             URL resource = Factory.class.getResource("/Factory.properties");
             System.out.println(resource);
-            //in = new FileInputStream("Factory.properties");
             in=Factory.class.getResourceAsStream("/Factory.properties");
             p.load(in);
         } catch (IOException e) {
