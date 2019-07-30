@@ -46,14 +46,61 @@ public class DeptUserMediatorImpl {
      * @param id 部门编号
      */
     public boolean deleteDept(String id) {
-        // 用于记录该部门的
+        // 用于记录该部门需要清除的关系对象
         ArrayList<DeptUserModel> list = new ArrayList<>();
-
+        for (DeptUserModel model : cache) {
+            if (model.getDeptId().equals(id)) {
+                // 记录需要清除的关系
+                list.add(model);
+            }
+        }
+        // 清除所有关系
+        cache.removeAll(list);
         return true;
     }
 
+    /**
+     * 完成因人员离职引起的部门交互
+     * @param id 员工编号
+     * @return
+     */
     public boolean deleteUser(String id) {
-
+        // 用于记录该员工需要清除的关系对象
+        ArrayList<DeptUserModel> list = new ArrayList<>();
+        for (DeptUserModel model : cache) {
+            if (model.getUserId().equals(id)) {
+                // 记录需要清除的关系
+                list.add(model);
+            }
+        }
+        // 清除所有关系
+        cache.removeAll(list);
         return true;
     }
+
+
+    /**
+     * 打印该部门下的所有员工 编号
+     * @param dept
+     */
+    public void showDeptUsers(Dept dept){
+        for (DeptUserModel model : cache) {
+            if (model.getDeptId().equals(dept.getId())) {
+                System.out.println("部门编号："+dept.getId()+"下面拥有的员工编号："+model.getUserId());
+            }
+        }
+    }
+
+    /**
+     * 打印该所有员工的所属部门 编号
+     * @param user
+     */
+    public void showUserDepts(User user){
+        for (DeptUserModel model : cache) {
+            if (model.getUserId().equals(user.getId())) {
+                System.out.println("员工编号："+user.getId()+"所属的部门编号："+model.getDeptId());
+            }
+        }
+    }
+
 }
