@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <jdbc>
+        <jdbc-driver>连接数据库的驱动类</jdbc-driver>
+        <url>数据库的连接URL</url>
+        <username>用户名</username>
+        <password>密码</password>
+    </jdbc>
+    <application-xml>Spring的配置信息</application-xml>
+</root>
